@@ -1,0 +1,19 @@
+<div nz-row nzJustify="space-between" class="header">
+    <div nz-col nzGutter="8">
+        <div nz-row nzGutter="16" nzAlign="middle">
+            <a nz-col routerLink="/" class="logo">
+                <img src="./assets/images/logo.png" alt="logo" />
+            </a>
+            <div nz-col class="header__search">
+                <input class="header__input" nz-input placeholder="search.." [formControl]="searchControl" />
+                <span nz-icon nzType="search" nzTheme="outline" class="header__search-icon"></span>
+            </div>
+        </div>
+    </div>
+    <div nz-col nzGutter="8">
+        <div nz-row nzGutter="16" nzAlign="middle">
+            <div nz-col> <button nz-button nzType="default">Login</button></div>
+            <div nz-col> <button nz-button nzType="primary">Create account</button></div>
+        </div>
+    </div>
+</div>
