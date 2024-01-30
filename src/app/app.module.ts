@@ -1,18 +1,17 @@
+import { registerLocaleData } from '@angular/common';
+import { HttpClientModule } from '@angular/common/http';
+import en from '@angular/common/locales/en';
 import { NgModule } from '@angular/core';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { SHARED_ZORRO_MODULES } from './common/ant-zorro.module';
-import SelectComponent from './common/select/m-select.component';
 import { KetQuaDieuTriDirective } from './common/data-common/select/ket-qua-dieu-tri.directive';
-import { NZ_I18N } from 'ng-zorro-antd/i18n';
-import { en_US } from 'ng-zorro-antd/i18n';
-import { registerLocaleData } from '@angular/common';
-import en from '@angular/common/locales/en';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { HttpClientModule } from '@angular/common/http';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import SelectComponent from './common/select/m-select.component';
 import { HeaderComponent } from './shared/layout/header/header.component';
+import { SharedModule } from './shared/shared.module';
 
 
 const NAVCOMPONENTS = [
@@ -25,13 +24,11 @@ registerLocaleData(en);
   imports: [
     BrowserModule,
     AppRoutingModule,
-    ...SHARED_ZORRO_MODULES,
     HttpClientModule,
     BrowserAnimationsModule,
     ReactiveFormsModule,
-    FormsModule
+    FormsModule,
+    SharedModule,
   ],
-  providers: [{ provide: NZ_I18N, useValue: en_US }],
-  bootstrap: [AppComponent],
 })
 export class AppModule { }

@@ -1,0 +1,54 @@
+.login {
+    max-width: 640px;
+    margin: 0 auto;
+    padding: 48px;
+
+
+    .title,
+    .sub-title,
+    .logo {
+        text-align: center;
+    }
+
+    .btn-signin-external {
+        display: flex;
+
+        button {
+            width: 100%;
+            font-weight: 600;
+        }
+
+    }
+
+    .divice {
+        height: 1px;
+        width: 100%;
+        background-color: rgb(229, 229, 229);
+        position: relative;
+        margin: 20px 0;
+
+        span {
+            background-color: #fff;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            padding: 0 12px;
+
+        }
+    }
+
+    .ant-form-item-label {
+        text-align: left;
+    }
+
+    .remember-forgot {
+        width: 100%;
+    }
+
+    .btn-submit {
+        width: 100%;
+    }
+
+
+}

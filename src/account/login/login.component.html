@@ -1,0 +1,58 @@
+<div class="login">
+    <a routerLink="/" class="logo">
+        <img src="./assets/images/logo.png" alt="logo" />
+    </a>
+    <h1 class="title">Join the DEV Community</h1>
+    <p class="sub-title">Dev Community is a community of 1,246,509 amazing develops</p>
+    <div class="btn-signin-external" nz-row [nzGutter]="[0, 12]">
+        <div nz-col nzLg="24">
+            <button nz-button nzType="default">
+                Continue with Facebook
+            </button>
+        </div>
+        <div nz-col nzLg="24">
+            <button nz-button nzType="default">
+                Continue with Google
+            </button>
+        </div>
+        <div nz-col nzLg="24">
+            <button nz-button nzType="default">
+                Continue with Microsoft
+            </button>
+        </div>
+    </div>
+    <p class="divice">
+        <span>OR</span>
+    </p>
+    <form nz-form [formGroup]="sgnForm">
+        <nz-form-item>
+            <nz-form-label nzFor="email" nzLg="24">Email</nz-form-label>
+            <nz-form-control nzErrorTip="Email is wrong!">
+                <input nz-input formControlName="email" placeholder="Email..." />
+            </nz-form-control>
+        </nz-form-item>
+        <nz-form-item>
+            <nz-form-label nzFor="email" nzLg="24">Password</nz-form-label>
+            <nz-form-control [nzErrorTip]="validatePassword">
+                <input nz-input formControlName="password" placeholder="Password..." type="password"
+                    [requiredLength]="6" />
+            </nz-form-control>
+            <ng-template #validatePassword let-control>
+                <ul>
+                    <li [hidden]="!control.errors.requiredLength">Password length must be greater than 6</li>
+                </ul>
+            </ng-template>
+        </nz-form-item>
+        <nz-form-item>
+            <div nz-row nzJustify="space-between" class="remember-forgot">
+                <div nz-col>
+                    <label nz-checkbox formControlName="isRemember">Remember me</label>
+                </div>
+                <div nz-col>
+                    <a routerLink="/">Forgot Password</a>
+                </div>
+            </div>
+        </nz-form-item>
+        <button nz-button nzType="primary" type="submit" class="btn-submit" [nzLoading]="submitting">Login</button>
+    </form>
+</div>

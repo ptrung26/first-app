@@ -1,5 +1,13 @@
 import { PlatformLocation } from "@angular/common";
-import * as localForage from 'localforage';
+import { HttpClientModule } from "@angular/common/http";
+import { NgModule } from "@angular/core";
+import { BrowserModule } from "@angular/platform-browser";
+import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
+import { SharedModule } from "./app/shared/shared.module";
+import { RootRoutingModule } from "./root-routing.module";
+import { AppModule } from "./app/app.module";
+import { RootComponent } from "./root.component";
+import { NZ_I18N, en_US } from "ng-zorro-antd/i18n";
 /**
  * Lấy base href    
  * @param platformLocation Xử lý vị trị và URL của ứng dụng 
@@ -28,3 +36,17 @@ export function getDocumentOrigin() {
     return document.location.origin;
 }
 
+@NgModule({
+    imports: [
+        BrowserAnimationsModule,
+        BrowserModule,
+        HttpClientModule,
+        SharedModule,
+        RootRoutingModule,
+        AppModule,
+    ],
+    providers: [{ provide: NZ_I18N, useValue: en_US }],
+    declarations: [RootComponent],
+    bootstrap: [RootComponent],
+})
+export class RootModule { }
