@@ -8,6 +8,11 @@ const routes: Routes = [
     loadChildren: () => import('./account/account.module').then(m => m.AccountModule), // Lazy load account module
     data: { preload: true },
   },
+  {
+    path: 'admin',
+    loadChildren: () => import("./app/pages/admin/admin.module").then(m => m.AdminModule),
+    data: { preload: true },
+  }
 ];
 
 @NgModule({

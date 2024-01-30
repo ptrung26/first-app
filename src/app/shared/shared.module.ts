@@ -3,6 +3,7 @@ import { NgModule } from "@angular/core";
 import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 import { RouterModule } from "@angular/router";
 import { SHARED_ZORRO_MODULES } from "../common/ant-zorro.module";
+import { SHARED_DELON_MODULES } from "./shared-delon.module";
 
 // #region your componets & directives
 const COMPONENTS: any = [];
@@ -31,6 +32,7 @@ const DIRECTIVES: any = [];
         ...COMPONENTS,
         ...DIRECTIVES,
         ...SHARED_ZORRO_MODULES,
+        ...SHARED_DELON_MODULES
     ],
 })
 export class SharedModule { }

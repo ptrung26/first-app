@@ -10,5 +10,11 @@ export class AppConsts {
         encrptedAuthTokenName: 'enc_auth_token',
     };
 
+    // TableGrid 
+    static readonly grid = {
+        defaultPageSize: 10,
+        defaultPageSizes: [5, 10, 15, 20, 25, 30, 50, 80, 100],
+    };
+
 
 }
