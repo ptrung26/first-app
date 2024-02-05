@@ -1,0 +1,27 @@
+<nz-table [nzData]="dataList" [nzFrontPagination]="false" [nzTotal]="totalItem" [nzShowPagination]="true"
+    [nzBordered]="true" [nzPageSize]="pageSize" [nzPageIndex]="pageNumber" nzShowSizeChanger [nzShowTotal]="totalTpl">
+    <thead>
+        <th>Action</th>
+        <th>ID</th>
+        <th>Title</th>
+        <th>Content</th>
+    </thead>
+    <tbody>
+        <tr *ngFor="let data of dataList">
+            <td>
+                <a>
+                    <span nz-icon nzType="edit" nzTheme="outline"></span>
+                </a>
+                <a>
+                    <span nz-icon nzType="delete" nzTheme="outline"></span>
+                </a>
+            </td>
+            <td>{{data.id}}</td>
+            <td>{{data.title}}</td>
+            <td>{{data.content}}</td>
+        </tr>
+    </tbody>
+</nz-table>
+<ng-template #totalTpl let-range="range" let-total>
+    <span class="kt-font-primary kt-font-bold">Tổng số bản ghi: {{total}}</span>
+</ng-template>

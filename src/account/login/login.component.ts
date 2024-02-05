@@ -1,26 +1,18 @@
-import { Component } from "@angular/core";
-import { FormBuilder, FormGroup, Validators } from "@angular/forms";
-import { LoginService } from "./login.service";
+import { Component } from '@angular/core';
+import { NgForm } from '@angular/forms';
 
 @Component({
-    templateUrl: './login.component.html',
-    styleUrls: ['./login.component.scss']
+  templateUrl: './login.component.html',
+  styleUrls: ['./login.component.scss'],
 })
 export class LoginComponent {
-    sgnForm: FormGroup;
-    submitting: boolean = false;
-
-    constructor(private fb: FormBuilder, private _loginService: LoginService) {
-        this.sgnForm = this.fb.group({
-            email: ['', Validators.email],
-            password: [''],
-            isRemember: [false]
-        })
+  submit(formValue: NgForm) {
+    if (formValue.form.invalid) {
+      for (let i in formValue.form.controls) {
+        formValue.form.controls[i].markAsDirty();
+        formValue.form.controls[i].updateValueAndValidity();
+      }
+      alert('Something wrong!');
     }
-
-    onSubmit() {
-        this.submitting = true;
-        this._loginService.authenticate(() => (this.submitting = false));
-    }
-
+  }
 }

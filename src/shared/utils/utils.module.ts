@@ -1,14 +1,14 @@
 import { CommonModule } from "@angular/common";
 import { NgModule } from "@angular/core";
-import { PasswordComplexityValidator } from "./validators/password-complexity-validator.directive";
+import { PasswordValidatorDirective } from "./validators/passsword-validator.directive";
 
 @NgModule({
     imports: [CommonModule],
     declarations: [
-        PasswordComplexityValidator,
+        PasswordValidatorDirective
     ],
     exports: [
-        PasswordComplexityValidator,
+        PasswordValidatorDirective
     ]
 })
 export class UtilsModule {

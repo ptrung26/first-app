@@ -7,20 +7,22 @@ import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { SHARED_ZORRO_MODULES } from './common/ant-zorro.module';
 import { KetQuaDieuTriDirective } from './common/data-common/select/ket-qua-dieu-tri.directive';
 import SelectComponent from './common/select/m-select.component';
 import { HeaderComponent } from './shared/layout/header/header.component';
-import { SharedModule } from './shared/shared.module';
+import { SharedModule } from '../shared/shared.module';
 
-
-const NAVCOMPONENTS = [
-  HeaderComponent,
-];
+const NAVCOMPONENTS = [HeaderComponent];
 registerLocaleData(en);
 
 @NgModule({
-  declarations: [AppComponent, SelectComponent, KetQuaDieuTriDirective, ...NAVCOMPONENTS],
+  declarations: [
+    AppComponent,
+    SelectComponent,
+    KetQuaDieuTriDirective,
+    HeaderComponent,
+    ...NAVCOMPONENTS,
+  ],
   imports: [
     BrowserModule,
     AppRoutingModule,
@@ -31,4 +33,4 @@ registerLocaleData(en);
     SharedModule,
   ],
 })
-export class AppModule { }
+export class AppModule {}

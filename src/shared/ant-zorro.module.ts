@@ -5,4 +5,16 @@ import { NzIconModule } from 'ng-zorro-antd/icon';
 import { NzButtonModule } from 'ng-zorro-antd/button';
 import { NzInputModule } from 'ng-zorro-antd/input';
 import { NzCheckboxModule } from 'ng-zorro-antd/checkbox';
-export const SHARED_ZORRO_MODULES = [NzSelectModule, NzFormModule, NzLayoutModule, NzIconModule, NzButtonModule, NzInputModule, NzCheckboxModule];
+import { NzTableModule } from 'ng-zorro-antd/table';
+import { NzNotificationModule } from 'ng-zorro-antd/notification';
+export const SHARED_ZORRO_MODULES = [
+  NzSelectModule,
+  NzFormModule,
+  NzLayoutModule,
+  NzIconModule,
+  NzButtonModule,
+  NzInputModule,
+  NzCheckboxModule,
+  NzTableModule,
+  NzNotificationModule,
+];

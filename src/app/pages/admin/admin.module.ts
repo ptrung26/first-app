@@ -1,16 +1,14 @@
-import { NgModule } from "@angular/core";
-import { AdminRoutingModule } from "./admin.routing.module";
-import { SharedModule } from "src/app/shared/shared.module";
-import { PostComponent } from "./post/post.component";
-import { AdminComponent } from "./admin.component";
-import { NavbarComponent } from "./layouts/navbar/navbar.component";
-import { AppNavigationService } from "./layouts/nav/app-navigation.service";
+import { NgModule } from '@angular/core';
+import { AdminRoutingModule } from './admin.routing.module';
+import { PostComponent } from './post/post.component';
+import { AdminComponent } from './admin.component';
+import { NavbarComponent } from './layouts/navbar/navbar.component';
+import { AppNavigationService } from './layouts/nav/app-navigation.service';
+import { SharedModule } from '../../../shared/shared.module';
 
 @NgModule({
-    imports: [AdminRoutingModule, SharedModule, AdminRoutingModule],
-    declarations: [PostComponent, AdminComponent, NavbarComponent],
-    providers: [AppNavigationService]
+  imports: [AdminRoutingModule, SharedModule, AdminRoutingModule],
+  declarations: [PostComponent, AdminComponent, NavbarComponent, PostComponent],
+  providers: [AppNavigationService],
 })
-export class AdminModule {
-
-}
+export class AdminModule {}

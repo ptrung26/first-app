@@ -1,17 +1,19 @@
-import { NgModule } from "@angular/core";
-import { AccountRoutingModule } from "./account.routing.module";
-import { LoginComponent } from "./login/login.component";
-import { SharedModule } from "src/app/shared/shared.module";
-import { PasswordComplexityValidator } from "src/app/shared/utils/validators/password-complexity-validator.directive";
-import { LoginService } from "./login/login.service";
-import { TokenService } from "./login/token.service";
-import { LocalStorageService } from "src/app/shared/utils/local-storage.service";
+import { NgModule } from '@angular/core';
+import { AccountRoutingModule } from './account.routing.module';
+import { LoginComponent } from './login/login.component';
+import { LoginService } from './login/login.service';
+import { TokenService } from './login/token.service';
+import { LocalStorageService } from '../shared/utils/local-storage.service';
+import { SharedModule } from '../shared/shared.module';
+import { RegisterComponent } from './register/register.component';
+import { UtilsModule } from '@shared/utils/utils.module';
 
 @NgModule({
-    imports: [AccountRoutingModule, SharedModule],
-    declarations: [LoginComponent, PasswordComplexityValidator],
-    providers: [LoginService, TokenService, LocalStorageService]
+  imports: [AccountRoutingModule, SharedModule, UtilsModule],
+  declarations: [
+    LoginComponent,
+    RegisterComponent,
+  ],
+  providers: [LoginService, TokenService, LocalStorageService],
 })
-export class AccountModule {
-
-}
+export class AccountModule { }

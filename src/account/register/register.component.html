@@ -1,4 +1,4 @@
-<div class="login">
+<div class="register">
     <a routerLink="/" class="logo">
         <img src="./assets/images/logo.png" alt="logo" />
     </a>
@@ -24,12 +24,12 @@
     <p class="divice">
         <span>OR</span>
     </p>
-    <form nz-form #loginForm="ngForm" (ngSubmit)="submit(loginForm)">
-        {{loginForm.value | json}}
+    <form nz-form #registerForm="ngForm" (ngSubmit)="submit(registerForm)">
+        {{registerForm.value | json}}
         <nz-form-item nzGutter="8">
             <nz-form-label nzFor="email" nzSm="24" nzMd="4" nzLg="24">Email</nz-form-label>
             <nz-form-control [nzErrorTip]="error_username">
-                <input nz-input name="email" placeholder="Email..." ngModel email required />
+                <input nz-input name="email" placeholder="Email..." ngModel email required autocomplete="off" />
             </nz-form-control>
             <ng-template #error_username let-control>
                 <ul>
@@ -39,28 +39,31 @@
             </ng-template>
         </nz-form-item>
         <nz-form-item nzGutter="8">
-            <nz-form-label nzFor="email" nzSm="24" nzMd="4" nzLg="24">Password</nz-form-label>
+            <nz-form-label nzFor="password" nzSm="24" nzMd="4" nzLg="24">Password</nz-form-label>
             <nz-form-control [nzErrorTip]="error_password">
                 <input nz-input name="password" placeholder="Password..." type="password" required [requireLength]="6"
-                    ngModel />
+                    [requireDigit]="true" ngModel autocomplete="off" />
             </nz-form-control>
             <ng-template #error_password let-control>
                 <ul>
                     <li [hidden]="!control.errors.required">Password is required</li>
-                    <li [hidden]="!control.errors.requireLength">Password length must be greater than 6</li>
+                    <li [hidden]="!control.errors.requiredLength">Password length must be greater than 6</li>
+                    <li [hidden]="!control.errors.requireDigit">Password must include numbers</li>
                 </ul>
             </ng-template>
         </nz-form-item>
-        <nz-form-item>
-            <div nz-row nzJustify="space-between" class="remember-forgot">
-                <div nz-col>
-                    <label nz-checkbox name="isRemember">Remember me</label>
-                </div>
-                <div nz-col>
-                    <a routerLink="/">Forgot Password</a>
-                </div>
-            </div>
+        <nz-form-item nzGutter="8">
+            <nz-form-label nzFor="confirmPassword" nzSm="24" nzMd="4" nzLg="24">Confirmation password</nz-form-label>
+            <nz-form-control [nzErrorTip]="error_confirm_password">
+                <input nz-input name="confirmPassword" placeholder="Confirm password ..." type="password" required
+                    [requireLength]="6" ngModel autocomplete="off" />
+            </nz-form-control>
+            <ng-template #error_confirm_password let-control>
+                <ul>
+                    <li [hidden]="!control.errors.required">Confirm password is required</li>
+                </ul>
+            </ng-template>
         </nz-form-item>
-        <button nz-button nzType="primary" type="submit" class="btn-submit">Login</button>
+        <button nz-button nzType="primary" type="submit" class="btn-submit">Register</button>
     </form>
 </div>
