@@ -13,13 +13,13 @@ import { finalize } from 'rxjs';
 })
 export class PostComponent
   extends PagedListComponentBase<any>
-  implements OnInit
-{
+  implements OnInit {
   constructor(private _postServices: PostServices) {
     super();
   }
 
   filter: string = '';
+  viewList: boolean = true;
 
   override ngOnInit(): void {
     this.refresh();
@@ -38,7 +38,8 @@ export class PostComponent
       .filter(input)
       .pipe(finalize(finishedCallback))
       .subscribe((res) => {
-        this.dataList = res;
+        this.dataList = res.data;
+        this.totalItem = res.totalItem;
       });
   }
 }

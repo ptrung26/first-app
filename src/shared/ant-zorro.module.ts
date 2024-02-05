@@ -7,6 +7,7 @@ import { NzInputModule } from 'ng-zorro-antd/input';
 import { NzCheckboxModule } from 'ng-zorro-antd/checkbox';
 import { NzTableModule } from 'ng-zorro-antd/table';
 import { NzNotificationModule } from 'ng-zorro-antd/notification';
+import { NzGridModule } from 'ng-zorro-antd/grid';
 export const SHARED_ZORRO_MODULES = [
   NzSelectModule,
   NzFormModule,
@@ -17,4 +18,5 @@ export const SHARED_ZORRO_MODULES = [
   NzCheckboxModule,
   NzTableModule,
   NzNotificationModule,
+  NzGridModule
 ];

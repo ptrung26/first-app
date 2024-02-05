@@ -11,6 +11,7 @@ import { KetQuaDieuTriDirective } from './common/data-common/select/ket-qua-dieu
 import SelectComponent from './common/select/m-select.component';
 import { HeaderComponent } from './shared/layout/header/header.component';
 import { SharedModule } from '../shared/shared.module';
+import { LayoutFilterComponent } from './shared/components/layout-filter/layout-filter.component';
 
 const NAVCOMPONENTS = [HeaderComponent];
 registerLocaleData(en);
@@ -33,4 +34,4 @@ registerLocaleData(en);
     SharedModule,
   ],
 })
-export class AppModule {}
+export class AppModule { }

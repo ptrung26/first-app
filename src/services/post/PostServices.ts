@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { Observable, delay, of } from 'rxjs';
 import { Post, posts } from '../../mock/posts';
 import { PostPagingListRequest } from '@services/types';
+import { AppConsts } from '@shared/AppConsts';
 
 const url: string = 'https://jsonplaceholder.typicode.com/posts/1';
 @Injectable({
@@ -15,13 +16,25 @@ export class PostServices {
   }
 
   filter(input: PostPagingListRequest) {
-    const filter = this.posts.filter((p) =>
-      p.content.includes(input.filter ?? '')
+    let filter = this.posts.filter((p) =>
+      p.title?.toLowerCase().includes(input.filter?.toLowerCase() ?? '')
     );
-
-    if (input.skipCount > 0) {
+    let totalItem = filter.length;
+    if (input.skipCount >= 0) {
+      const index = Math.ceil(input.skipCount / filter.length);
+      filter = filter.slice(index, AppConsts.grid.defaultPageSize);
     }
-    return of(filter).pipe(delay(500));
+
+    const result = {
+      data: filter,
+      totalItem,
+    }
+    return of(result).pipe(delay(500));
+  }
+
+  getById(postId: number): Observable<any> {
+    const filter = this.posts.filter(post => post.id === postId);
+    return of(filter[0]);
   }
 
   create(post: Post) {

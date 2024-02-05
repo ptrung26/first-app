@@ -18,7 +18,7 @@ export class HeaderComponent implements OnInit {
   searchControl = new FormControl();
   filter: Post[] = [];
 
-  constructor(private postServices: PostServices) {}
+  constructor(private postServices: PostServices) { }
 
   ngOnInit(): void {
     this.searchControl.valueChanges
@@ -31,8 +31,7 @@ export class HeaderComponent implements OnInit {
         })
       )
       .subscribe((result) => {
-        console.log(result);
-        this.filter = result;
+        this.filter = result.data;
       });
   }
 }

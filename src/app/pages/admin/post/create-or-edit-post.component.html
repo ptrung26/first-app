@@ -1,0 +1,23 @@
+<form nz-form [formGroup]="form" nzLayout="vertical">
+    <div nz-row>
+        <div nz-col>
+            <nz-form-item>
+                <nz-form-label for="title" nzRequired nzErrorTip="Title can't empty!">Title</nz-form-label>
+                <nz-form-control>
+                    <input nz-input formControlName="title" />
+                </nz-form-control>
+            </nz-form-item>
+        </div>
+        <div nz-col>
+            <nz-form-item>
+                <nz-form-label for="content" nzRequired>Content</nz-form-label>
+                <textarea nz-input formArrayName="content"></textarea>
+            </nz-form-item>
+        </div>
+    </div>
+</form>
+<div nz-row>
+    <div nz-col>
+        <button nz-button></button>
+    </div>
+</div>
